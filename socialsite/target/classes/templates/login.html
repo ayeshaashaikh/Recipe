@@ -1,0 +1,255 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <!--    <link rel="stylesheet" th:href="@{/css/styles.css}">-->
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/regis4.webp') no-repeat center center fixed;
+        background-size: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 10%;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.nav_links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+        margin-right: 900px;
+}
+
+.nav_links li {
+    margin: 0 15px;
+   background: #f77200;
+    padding: 5px;
+    border-radius: 20px;
+    width: 80px;
+
+}
+
+.nav_links a {
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    margin-left:20px
+}
+
+.nav_links a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+        margin-left: 450px;
+       color: #d2691e;
+       font-family: 'Times New Roman', Times, serif;
+}
+
+@keyframes border-move {
+    0% {
+        border-color: #d2a679;
+        box-shadow: 0 0 15px rgba(210, 166, 121, 0.5);
+    }
+    25% {
+        border-color: #d2691e;
+        box-shadow: 0 0 15px rgba(210, 105, 30, 0.5);
+    }
+    50% {
+        border-color: #b55a1b;
+        box-shadow: 0 0 15px rgba(181, 90, 27, 0.5);
+    }
+    75% {
+        border-color: #a0522d;
+        box-shadow: 0 0 15px rgba(160, 82, 45, 0.5);
+    }
+    100% {
+        border-color: #d2a679;
+        box-shadow: 0 0 15px rgba(210, 166, 121, 0.5);
+    }
+}
+
+form {
+    background: url('/images/kitchen-pattern.png'); /* Subtle kitchen pattern */
+   background-color: rgba(255, 255, 255, 0.3); /* Slight transparency to see the pattern */
+   padding: 150px;
+
+    max-width: 600px;
+    margin: 20px auto;
+ box-shadow: 0 2px 10px 0 gray;
+
+    padding-top: 50px;
+
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold; /* Make labels bold */
+    color:#d2691e;
+    margin-left: 380px;
+    padding:5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="file"] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for a recipe feel */
+    margin-left: 380px;
+    background:black;
+    color: #f77200;
+}
+
+form button {
+    background-color: #d2691e; /* A warm brown color for buttons */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 490px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 15px;
+}
+
+form button:hover {
+    background-color: #b55a1b; /* Slightly darker brown on hover */
+}
+
+
+/*
+form label {
+    display: block;
+    margin-top: 10px;
+
+
+   color:#d2691e;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
+form button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+*/
+        form {
+
+  background: url('/images/form.png') no-repeat center center fixed;
+  background-size: cover;
+  }
+input[type="password"], input[type="email"] {
+   width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for a recipe feel */
+    margin-left: 380px;
+    background:black;
+      color: #f77200;
+   }
+
+    </style>
+</head>
+<body>
+<header>
+  <img class="logo" src="images/logo.png" alt="logo">
+  <nav>
+    <ul class="nav_links">
+      <li><a th:href="@{/home}">Home</a></li>
+      <li><a th:href="@{/register}">Sign Up</a></li>
+
+      <!-- Add more navigation links here as needed -->
+    </ul>
+  </nav>
+</header>
+<form th:action="@{/login}" method="post">
+  <h1> Login</h1>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required><br>
+
+  <button type="submit">Login</button>
+
+</form>
+
+</body>
+</html>

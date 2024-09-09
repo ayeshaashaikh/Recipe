@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Home</title>
+  <link th:href="@{/css/home.css}" rel="stylesheet">
+</head>
+<body>
+<header>
+  <img class="logo" th:src="@{/images/logo.png}" alt="logo">
+  <nav>
+    <ul class="nav_links">
+      <li><a th:href="@{/submit-recipe}">Submit Recipe</a></li>
+      <li><a th:href="@{/recipes}">Recipes</a></li>
+      <li><a th:href="@{/leaderboard}">Leaderboard</a></li>
+      <li><a th:href="@{/login}">Login</a></li>
+      <li><a th:href="@{/register}">Register</a></li>
+      <!-- Add more navigation links here as needed -->
+    </ul>
+  </nav>
+</header>
+<div class="content">
+  <h1>Bring Spice To Your Life</h1>
+  <p>Explore and find top recipes all over the world</p>
+  <a th:href="@{/register}">
+    <button>Get Started</button>
+  </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- Navbar.html (or included in layout.html) -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Navbar</title>
+  <link rel="stylesheet" th:href="@{/css/navbar-styles.css}">
+</head>
+<body>
+<nav class="navbar">
+  <ul>
+    <li><a th:href="@{/submit-recipe}">Submit Recipe</a></li>
+    <li><a th:href="@{/recipes}">Recipes</a></li>
+    <li><a th:href="@{/leaderboard}">Leaderboard</a></li>
+    <!-- Add more navigation links here as needed -->
+  </ul>
+</nav>
+</body>
+</html>

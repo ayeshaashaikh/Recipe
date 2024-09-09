@@ -1,0 +1,67 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    background: url('/images/image.webp') no-repeat center center fixed;
+      background-size: cover;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+    }
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+    .nav_links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    .nav_links li {
+      margin: 0 15px;
+    }
+    .nav_links a {
+      font-family: Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: white;
+      text-decoration: none;
+    }
+    .nav_links a:hover {
+      text-decoration: underline;
+    }
+    h1, p {
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+    }
+    .content {
+      background-color: rgba(255, 255, 255, 0.2); /* Slight transparency to see the pattern */
+      padding: 60px;
+      border-radius: 10px; /* Rounded corners */
+      max-width: 600px;
+      margin: 20px auto;
+      border: 2px solid white; /* Border width and color */
+      margin-top: 200px;
+    }
+    button {
+      display: block;
+      margin: 20px auto; /* Center button horizontally */
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    }
+    button:hover {
+      background-color: white;
+      color: black;
+    }

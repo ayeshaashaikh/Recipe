@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Recipes</title>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('/images/back-2.webp') no-repeat center center fixed;
+  background-size: cover;
+  image-rendering: auto;
+}
+h1{
+text-align:center;
+font-weight:bold;
+color:#d35711;
+margin-right:1100px;
+text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+
+}
+header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.nav_links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+
+}
+
+.nav_links li {
+  margin: 0 15px;
+}
+
+.nav_links a {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav_links a:hover {
+  text-decoration: underline;
+}
+
+
+.recipes{
+display:grid;
+grid-auto-flow:column;
+scroll-behavior:auto;
+gap:1.2rem;
+overflow-y:auto;
+overscroll-behavior-x:contain;
+scroll-snap-type:x mandatory;
+scrollbar-width:none;
+
+}
+
+.recipe {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px); /* Adjust for three recipes per row */
+  text-align: center;
+  margin-right:30px;
+  background-color: rgba(255, 255, 255, 0.5); /* Slight transparency to see the pattern */
+}
+
+.recipe img {
+ width:350px;
+ height:250px;
+
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.recipe:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.recipe-content {
+  padding-top: 10px;
+}
+
+@media (max-width: 1000px) {
+  .recipe {
+    width: calc(50% - 20px); /* Adjust for two recipes per row on smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .recipe {
+    width: 100%; /* Adjust for one recipe per row on mobile screens */
+  }
+}
+
+  </style>
+</head>
+<body>
+<header>
+  <img class="logo" src="images/logo.png" alt="logo">
+  <nav>
+    <ul class="nav_links">
+      <li><a th:href="@{/submit-recipe}">Submit Recipe</a></li>
+      <li><a th:href="@{/recipes}">Recipes</a></li>
+      <li><a th:href="@{/leaderboard}">Leaderboard</a></li>
+      <li><a th:href="@{/logout}">Logout</a></li>
+      <!-- Add more navigation links here as needed -->
+    </ul>
+  </nav>
+</header>
+
+<h1>LEADERBOARD</h1>
+<div class="recipes">
+  <ul style="display:flex;list-style-type:none;">
+    <li th:each="recipe : ${recipes}" class="recipe">
+      <img th:src="@{/uploads/{imageName}(imageName=${recipe.imgName})}" alt="Recipe Photo">
+      <div class="recipe-content">
+        <h2 th:text="${recipe.title}"></h2>
+        <p th:text="${recipe.description}"></p>
+        <a th:href="${recipe.videoUrl}">Watch Video</a>
+        <p>Votes: <span th:text="${recipe.votes}"></span></p>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>
